@@ -1,65 +1,91 @@
-<mxfile host="app.diagrams.net" modified="2022-08-31T07:06:34.585Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36" etag="WvzIlP_B8uxl3n032LMu" version="20.2.7" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-31T09:01:57.241Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36" etag="sf54KH0YYdIFjyDfAqmN" version="20.2.7" type="github">
   <diagram id="Hz7cJRExKgmZ5W45LPww" name="Sivu-1">
-    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1185" dy="635" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="3tfQEaThb0UxIbnVll5k-1" value="Käyttäjä" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontColor=default;" parent="1" vertex="1">
-          <mxGeometry x="10" y="50" width="60" height="80" as="geometry" />
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-10" value="Käyttäjä" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="100" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="3tfQEaThb0UxIbnVll5k-2" value="Ylläpitäjä" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontColor=default;" parent="1" vertex="1">
-          <mxGeometry x="680" y="60" width="60" height="90" as="geometry" />
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-11" value="Ylläpitäjä" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="340" width="80" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="3tfQEaThb0UxIbnVll5k-3" value="Sovelluksen&lt;br&gt;etusivu" style="ellipse;whiteSpace=wrap;html=1;fontColor=default;" parent="1" vertex="1">
-          <mxGeometry x="320" y="90" width="120" height="60" as="geometry" />
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-14" value="Muiden käyttäjien&lt;br&gt;tekemien äänestyksien selaus" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="180" width="120" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="3tfQEaThb0UxIbnVll5k-4" value="" style="endArrow=classic;html=1;rounded=0;fontColor=default;entryX=0.45;entryY=-0.017;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="3tfQEaThb0UxIbnVll5k-3" edge="1">
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-15" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.017;entryY=0.389;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="P5tv0oEiq4LPpSiQlrqR-10" target="P5tv0oEiq4LPpSiQlrqR-14">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="60" y="70" as="sourcePoint" />
-            <mxPoint x="440" y="360" as="targetPoint" />
+            <mxPoint x="390" y="290" as="sourcePoint" />
+            <mxPoint x="440" y="240" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3tfQEaThb0UxIbnVll5k-5" value="Voi selailla muiden käyttäjien tekemiä äänestyksiä" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=default;rotation=4.2;" parent="1" vertex="1">
-          <mxGeometry x="60" y="50" width="290" height="30" as="geometry" />
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-18" value="Äänestyksen valinta" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="90" width="90" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="3tfQEaThb0UxIbnVll5k-7" value="Voi valita äänestyksen&lt;br&gt;ja katsoa äänestystilanteen" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=default;rotation=4;" parent="1" vertex="1">
-          <mxGeometry x="110" y="80" width="170" height="40" as="geometry" />
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-19" value="Äänestystilanteen&lt;br&gt;katsominen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="80" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="3tfQEaThb0UxIbnVll5k-8" value="" style="endArrow=classic;html=1;rounded=0;fontColor=default;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="3tfQEaThb0UxIbnVll5k-3" edge="1">
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-21" value="" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;exitX=0.025;exitY=0.413;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.011;entryY=0.425;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="P5tv0oEiq4LPpSiQlrqR-19" target="P5tv0oEiq4LPpSiQlrqR-18">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="70" y="150" as="sourcePoint" />
-            <mxPoint x="440" y="350" as="targetPoint" />
+            <mxPoint x="390" y="290" as="sourcePoint" />
+            <mxPoint x="440" y="240" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3tfQEaThb0UxIbnVll5k-9" value="" style="endArrow=classic;html=1;rounded=0;fontColor=default;entryX=0.017;entryY=0.633;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="3tfQEaThb0UxIbnVll5k-3" edge="1">
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-27" value="&amp;lt;&amp;lt; extend &amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-8.4;" vertex="1" parent="1">
+          <mxGeometry x="590" y="90" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-22" value="&amp;lt;&amp;lt; extend &amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-34;" vertex="1" parent="1">
+          <mxGeometry x="430" y="150" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-29" value="Sovelluksen valinta" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="290" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-30" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=1;entryX=0.058;entryY=0.238;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="P5tv0oEiq4LPpSiQlrqR-29">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="70" y="110" as="sourcePoint" />
-            <mxPoint x="440" y="350" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="3tfQEaThb0UxIbnVll5k-10" value="Voi valita sovelluksen" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=default;" parent="1" vertex="1">
-          <mxGeometry x="120" y="130" width="140" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="3tfQEaThb0UxIbnVll5k-11" value="Voi käydä äänestämässä&lt;br&gt;valitsemaansa äänestystä" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=default;" parent="1" vertex="1">
-          <mxGeometry x="115" y="150" width="160" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="3tfQEaThb0UxIbnVll5k-12" value="" style="endArrow=classic;html=1;rounded=0;fontColor=default;entryX=1;entryY=0;entryDx=0;entryDy=0;" parent="1" target="3tfQEaThb0UxIbnVll5k-3" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="680" y="95" as="sourcePoint" />
+            <mxPoint x="104" y="246" as="sourcePoint" />
             <mxPoint x="440" y="340" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3tfQEaThb0UxIbnVll5k-13" value="Voi tehdä uusia äänestyksiä&lt;br&gt;muiden äänestettäväksi" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=default;" parent="1" vertex="1">
-          <mxGeometry x="460" y="60" width="170" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="3tfQEaThb0UxIbnVll5k-14" value="Voi poistaa äänestyksiä" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=default;rotation=2.3;" parent="1" vertex="1">
-          <mxGeometry x="477" y="118" width="150" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="P5tv0oEiq4LPpSiQlrqR-1" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="3tfQEaThb0UxIbnVll5k-2" target="3tfQEaThb0UxIbnVll5k-3">
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-31" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.975;exitY=0.238;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" edge="1" parent="1" source="P5tv0oEiq4LPpSiQlrqR-29" target="P5tv0oEiq4LPpSiQlrqR-18">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="390" y="320" as="sourcePoint" />
-            <mxPoint x="440" y="270" as="targetPoint" />
+            <mxPoint x="390" y="390" as="sourcePoint" />
+            <mxPoint x="440" y="340" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-33" value="&amp;lt;&amp;lt; extend &amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=-60;" vertex="1" connectable="0" parent="P5tv0oEiq4LPpSiQlrqR-31">
+          <mxGeometry x="-0.2229" y="4" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-34" value="Äänestäminen" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-60;" vertex="1" parent="1">
+          <mxGeometry x="460" y="240" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-37" value="" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;entryX=0.917;entryY=0.222;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.207;exitY=0.903;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="P5tv0oEiq4LPpSiQlrqR-18" target="P5tv0oEiq4LPpSiQlrqR-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="380" y="250" as="sourcePoint" />
+            <mxPoint x="430" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-38" value="Uusien äänestyksien&lt;br&gt;luonti" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="400" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-39" value="Äänestyksien poisto" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="490" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-40" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=1;entryX=-0.014;entryY=0.406;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="P5tv0oEiq4LPpSiQlrqR-38">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="90" y="410" as="sourcePoint" />
+            <mxPoint x="490" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-41" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=1;" edge="1" parent="1" target="P5tv0oEiq4LPpSiQlrqR-39">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="97" y="449" as="sourcePoint" />
+            <mxPoint x="490" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="P5tv0oEiq4LPpSiQlrqR-42" value="Äänestyssovellus" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry x="310" y="40" width="500" height="550" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
