@@ -1,8 +1,6 @@
 function kirjaudu() {
     let ID = document.getElementById("ID").value;
-    console.log(ID);
     let ss = document.getElementById("salasana").value;
-    console.log(ss);
 
     if (ID == "admin" && ss == "1234") {
         kirjauduAdmin();
@@ -22,4 +20,7 @@ function uusiAanestys() {
 }
 function sulje() {
     document.getElementById("uusi").style.display = "none";
+}
+function init() {
+    
 }
