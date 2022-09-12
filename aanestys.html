@@ -9,23 +9,64 @@
 <body>
     <style>
         body {
-            background-color: darkgray;
+            background-image: url(tausta.jpg);
         }
         .ylapalkki {
+            width: 100%;
             display: inline-block;
+            border-bottom: 2px solid white;
         }
+        #ala {
+            width: 100%;
+            height: 100%;
+            background-image: url(tausta.jpg);
+        }
+        h1 {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+        }
+        .aanestys {
+            width: 25%;
+            background-color: gray;
+            display: inline;
+        }
+        #uusi {
+            width: 100px;
+            background-color: grey;
+        }
+
     </style>
 </body>
 <center>
 <div class="ylapalkki">
-    <h1>Äänestysovellus</h1>
-    <div class="kirjautuminen">
-        <label>Kirjaudu sisään:</label>
-        <input type="text" id="nappula">
-        <input type="submit" value="Kirjaudu" onclick="kirjaudu()">
+    <h1>Äänestyssovellus</h1>
+   
+    <div class="kirjautuminen" id="kirjautuminen">
+            <br>
+            <input type="text" id="ID" placeholder="KäyttäjäID">
+            <br>
+            <input type="text" id="salasana" placeholder="Salasana">
+            <br>
+            <input type="submit" placeholder="Kirjaudu" onclick="kirjaudu()">
+        </div>
+    <div id="aanestysNappulat" style="display: none">
+        <button type="button" onclick="uusiAanestys()">Uusi äänestys</button>
     </div>
-    
 </div>
+<div id="ala">
+
+</div>
+<div id="uusi" style="display: none">
+        <button type="button" onclick="sulje()">Sulje</button>
+        <br>
+        <input type="text" id="nimi" placeholder="Nimi">
+        <br>
+        <input type="vastaus1" id="vastaus1" placeholder="Vastaus 1">
+        <br>
+        <input type="vastaus2" id="vastaus2" placeholder="Vastaus 2">
+        <br>
+        <input type="submit" placeholder="Luo uusi" onclick="aanestysLuotu()">
+    </div>
 </center>
 <script src="aanestys.js"></script>
 </html>
