@@ -68,6 +68,7 @@ function getVotes() {
         voteH2.appendChild(br);
         voteH2.appendChild(voteTopic);
 
+        let votenumber = 0;
         var optionList = document.createElement("ul");
         vote.options.forEach(option => {
             console.log(option);
@@ -77,17 +78,20 @@ function getVotes() {
 
             var optionButton = document.createElement("button");
             optionButton.appendChild(optionText);
+            optionButton.dataset('vote', votenumber);
             optionElement.appendChild(optionButton);
-
+            
 
             var btnAaniText = document.createTextNode("Äänestä");
             optionElement.appendChild(optionText);
             btnAani.appendChild(btnAaniText);
             optionList.appendChild(btnAani);
             optionList.appendChild(optionElement);
+            
         })
         voteDiv.appendChild(voteH2);
         voteDiv.appendChild(optionList);
+        votenumber++;
     });
     document.getElementById("uusi").style.display = "none";
 }
@@ -103,5 +107,5 @@ function delVote(voteId) {
 function voteclick(event) {
     console.log("Yritit äänestää");
     console.log(event.target);
-    
+
 }
