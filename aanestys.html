@@ -17,22 +17,26 @@
             border-bottom: 2px solid white;
         }
         #ala {
-            width: 100%;
+            width: 20%;
             height: 100%;
-            background-image: url(tausta.jpg);
+            background-color: whitesmoke;
         }
         h1 {
             font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             color: white;
         }
         .aanestys {
-            width: 25%;
+            max-width: 20%;
             background-color: gray;
             display: inline;
         }
         #uusi {
-            width: 100px;
+            width: 250px;
             background-color: grey;
+        }
+        li {
+            text-align: left;
+            display: block;
         }
 
     </style>
@@ -50,22 +54,25 @@
             <input type="submit" placeholder="Kirjaudu" onclick="kirjaudu()">
         </div>
     <div id="aanestysNappulat" style="display: none">
-        <button type="button" onclick="uusiAanestys()">Uusi äänestys</button>
+        <button type="button" onclick="kirjauduUlos()">Kirjaudu ulos</button>
+        <button type="button" onclick="uusiAanestysDiv()">Uusi äänestys</button>
     </div>
 </div>
+</center>
 <div id="ala">
 
 </div>
+<center>
 <div id="uusi" style="display: none">
-        <button type="button" onclick="sulje()">Sulje</button>
+        <button type="button" onclick="suljeDiv()">Sulje</button>
         <br>
         <input type="text" id="nimi" placeholder="Nimi">
         <br>
-        <input type="vastaus1" id="vastaus1" placeholder="Vastaus 1">
+        <input type="text" id="vastaus1" placeholder="Vastaus 1">
         <br>
-        <input type="vastaus2" id="vastaus2" placeholder="Vastaus 2">
+        <input type="text" id="vastaus2" placeholder="Vastaus 2">
         <br>
-        <input type="submit" placeholder="Luo uusi" onclick="aanestysLuotu()">
+        <input type="submit" placeholder="Luo uusi" onclick="uusiAanestys(), getVotes()">
     </div>
 </center>
 <script src="aanestys.js"></script>
