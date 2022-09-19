@@ -12,19 +12,19 @@ function kirjaudu() {
 }
 function kirjauduAdmin() {
     document.getElementById("kirjautuminen").style.display = "none";
-    document.getElementById("aanestysNappulat").style.display = "inline";
-    if (document.getElementById("uusiAanestys").style.display = "none") {
-        document.getElementById("uusiAanestys").style.display = "inline";
+    document.getElementById("ylaNappulat").style.display = "inline";
+    if (document.getElementById("adminNappulat").style.display = "none") {
+        document.getElementById("adminNappulat").style.display = "inline";
     }
 }
 function kirjauduPerus() {
     document.getElementById("kirjautuminen").style.display = "none";
-    document.getElementById("aanestysNappulat").style.display = "inline";
-    document.getElementById("uusiAanestys").style.display = "none";
+    document.getElementById("ylaNappulat").style.display = "inline";
+    document.getElementById("adminNappulat").style.display = "none";
 }
 function kirjauduUlos() {
     document.getElementById("kirjautuminen").style.display = "block";
-    document.getElementById("aanestysNappulat").style.display = "none";
+    document.getElementById("ylaNappulat").style.display = "none";
 }
 function uusiAanestysDiv() {
     document.getElementById("uusi").style.display = "block";
@@ -55,12 +55,12 @@ function init() {
     }
     votes.push(vote);
     window.localStorage.setItem('votes', JSON.stringify(votes));
-    console.log("init");   
+    console.log("init");
 }
 function getVotes() {
     var votes = JSON.parse(window.localStorage.getItem('votes'));
     var voteDiv = document.getElementById("ala");
-
+    var totalVotes = votes[voteId].options[optionId].votes;
     var voteNumber = 0;
     var optionNumber = 0;
     votes.forEach(vote => {
@@ -83,6 +83,10 @@ function getVotes() {
             optionElement.appendChild(optionText);
             optionList.appendChild(optionElement);
             optionNumber++;
+            var h4 = document.createElement("h4");
+            var h4text = document.createTextNode(vote.aihe + " äänestykset: " + totalVotes);
+            optionList.appendChild(h4);
+            // optionList.appendChild(h4text);
         })
         voteDiv.appendChild(voteH2);
         voteDiv.appendChild(optionList);
@@ -95,9 +99,9 @@ function giveVote(voteId, optionId) {
     votes[voteId].options[optionId].votes++;
     window.localStorage.setItem('votes', JSON.stringify(votes));
 }
-function delVote(voteId) {
+function delVote() {
     var votes = JSON.parse(window.localStorage.getItem('votes'));
-    delete votes[voteId];
+    delete votes;
 }
 function voteClick(event) {
     if (event.target.dataset.vote) {

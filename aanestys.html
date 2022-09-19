@@ -19,10 +19,13 @@
         #ala {
             width: 20%;
             height: 100%;
-            background-color: whitesmoke;
+            background-color: gray;
         }
         h1 {
             font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+        }
+        h2 {
             color: white;
         }
         .aanestys {
@@ -34,9 +37,13 @@
             width: 250px;
             background-color: grey;
         }
+        ul {
+            color: white;
+        }
         li {
             text-align: left;
             display: block;
+            color: white;
         }
         #aanestysNappulat {
             display: inline;
@@ -50,15 +57,16 @@
    
     <div class="kirjautuminen" id="kirjautuminen">
             <br>
-            <input type="text" id="ID" placeholder="KäyttäjäID">
+            <input type="text" id="ID" placeholder="KäyttäjäID" value="admin">
             <br>
-            <input type="text" id="salasana" placeholder="Salasana">
+            <input type="text" id="salasana" placeholder="Salasana" value="1234">
             <br>
             <input type="submit" placeholder="Kirjaudu" onclick="kirjaudu()">
         </div>
-    <div id="aanestysNappulat" style="display: none">
+    <div id="ylaNappulat" style="display: none">
         <button type="button" onclick="kirjauduUlos()">Kirjaudu ulos</button>
-        <div id="uusiAanestys">
+        <div id="adminNappulat">
+            <button type="button" onclick="delVote()">Poista äänestys</button>
             <button type="button" onclick="uusiAanestysDiv()">Uusi äänestys</button>
         </div>
     </div>
