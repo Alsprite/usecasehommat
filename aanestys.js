@@ -65,10 +65,6 @@ function getVotes() {
     votes.forEach(vote => {
         var voteH2 = document.createElement("h2");
         var voteTopic = document.createTextNode(vote.aihe);
-        var btnPoista = document.createElement("button");
-        var btnPoistaText = document.createTextNode("Poista");
-        btnPoista.appendChild(btnPoistaText);
-        voteH2.appendChild(btnPoista);
         voteH2.appendChild(voteTopic);
 
         var optionNumber = 0;
