@@ -1,4 +1,4 @@
-document.addEventListener("click", voteclick);
+document.addEventListener("click", voteClick);
 
 function kirjaudu() {
     let ID = document.getElementById("ID").value;
@@ -12,10 +12,15 @@ function kirjaudu() {
 }
 function kirjauduAdmin() {
     document.getElementById("kirjautuminen").style.display = "none";
-    document.getElementById("aanestysNappulat").style.display = "block";
+    document.getElementById("aanestysNappulat").style.display = "inline";
+    if (document.getElementById("uusiAanestys").style.display = "none") {
+        document.getElementById("uusiAanestys").style.display = "inline";
+    }
 }
 function kirjauduPerus() {
     document.getElementById("kirjautuminen").style.display = "none";
+    document.getElementById("aanestysNappulat").style.display = "inline";
+    document.getElementById("uusiAanestys").style.display = "none";
 }
 function kirjauduUlos() {
     document.getElementById("kirjautuminen").style.display = "block";
@@ -56,42 +61,35 @@ function getVotes() {
     var votes = JSON.parse(window.localStorage.getItem('votes'));
     var voteDiv = document.getElementById("ala");
 
+    var voteNumber = 0;
     votes.forEach(vote => {
-        console.log(vote.aihe);
         var voteH2 = document.createElement("h2");
         var voteTopic = document.createTextNode(vote.aihe);
         var btnPoista = document.createElement("button");
         var btnPoistaText = document.createTextNode("Poista");
-        var br = document.createElement("br");
         btnPoista.appendChild(btnPoistaText);
         voteH2.appendChild(btnPoista);
-        voteH2.appendChild(br);
         voteH2.appendChild(voteTopic);
 
-        let votenumber = 0;
+        var optionNumber = 0;
         var optionList = document.createElement("ul");
         vote.options.forEach(option => {
             console.log(option);
             var optionElement = document.createElement("li");
             var optionText = document.createTextNode(option.name);
             var btnAani = document.createElement("button");
-
-            var optionButton = document.createElement("button");
-            optionButton.appendChild(optionText);
-            optionButton.dataset('vote', votenumber);
-            optionElement.appendChild(optionButton);
-            
-
             var btnAaniText = document.createTextNode("Äänestä");
-            optionElement.appendChild(optionText);
             btnAani.appendChild(btnAaniText);
-            optionList.appendChild(btnAani);
+            btnAani.dataset.vote = voteNumber;
+            btnAani.dataset.option = optionNumber;
+            optionElement.appendChild(btnAani);
+            optionElement.appendChild(optionText);
             optionList.appendChild(optionElement);
-            
+            optionNumber++;
         })
         voteDiv.appendChild(voteH2);
         voteDiv.appendChild(optionList);
-        votenumber++;
+        voteNumber++;
     });
     document.getElementById("uusi").style.display = "none";
 }
@@ -104,8 +102,9 @@ function delVote(voteId) {
     var votes = JSON.parse(window.localStorage.getItem('votes'));
     delete votes[voteId];
 }
-function voteclick(event) {
-    console.log("Yritit äänestää");
-    console.log(event.target);
-
+function voteClick(event) {
+    if (event.target.dataset.vote) {
+        console.log(event.target.dataset.vote);
+        giveVote(event.target.dataset.vote, event.target);
+    }
 }

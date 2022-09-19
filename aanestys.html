@@ -38,6 +38,9 @@
             text-align: left;
             display: block;
         }
+        #aanestysNappulat {
+            display: inline;
+        }
 
     </style>
 </body>
@@ -55,13 +58,18 @@
         </div>
     <div id="aanestysNappulat" style="display: none">
         <button type="button" onclick="kirjauduUlos()">Kirjaudu ulos</button>
-        <button type="button" onclick="uusiAanestysDiv()">Uusi äänestys</button>
+        <div id="uusiAanestys">
+            <button type="button" onclick="uusiAanestysDiv()">Uusi äänestys</button>
+        </div>
     </div>
 </div>
 </center>
-<div id="ala">
+<div id="joo">
+    <div id="ala">
 
+    </div>
 </div>
+
 <center>
 <div id="uusi" style="display: none">
         <button type="button" onclick="suljeDiv()">Sulje</button>
