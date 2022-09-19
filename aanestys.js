@@ -62,12 +62,13 @@ function getVotes() {
     var voteDiv = document.getElementById("ala");
 
     var voteNumber = 0;
+    var optionNumber = 0;
     votes.forEach(vote => {
         var voteH2 = document.createElement("h2");
         var voteTopic = document.createTextNode(vote.aihe);
         voteH2.appendChild(voteTopic);
 
-        var optionNumber = 0;
+        
         var optionList = document.createElement("ul");
         vote.options.forEach(option => {
             console.log(option);
