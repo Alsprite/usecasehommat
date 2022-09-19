@@ -101,7 +101,6 @@ function delVote(voteId) {
 }
 function voteClick(event) {
     if (event.target.dataset.vote) {
-        console.log(event.target.dataset.vote);
-        giveVote(event.target.dataset.vote, event.target);
+        giveVote(event.target.dataset.vote, event.target.dataset.option);
     }
 }
