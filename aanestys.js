@@ -60,7 +60,6 @@ function init() {
 function getVotes() {
     var votes = JSON.parse(window.localStorage.getItem('votes'));
     var voteDiv = document.getElementById("ala");
-    var totalVotes = votes[voteId].options[optionId].votes;
     var voteNumber = 0;
     var optionNumber = 0;
     votes.forEach(vote => {
@@ -83,10 +82,11 @@ function getVotes() {
             optionElement.appendChild(optionText);
             optionList.appendChild(optionElement);
             optionNumber++;
-            var h4 = document.createElement("h4");
-            var h4text = document.createTextNode(vote.aihe + " äänestykset: " + totalVotes);
+            var h4 = document.createElement("li");
+            var h4text = document.createTextNode(option.name + " äänestykset: " + option.votes);
+            h4.appendChild(h4text);
             optionList.appendChild(h4);
-            // optionList.appendChild(h4text);
+            
         })
         voteDiv.appendChild(voteH2);
         voteDiv.appendChild(optionList);
