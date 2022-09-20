@@ -59,11 +59,11 @@ function init() {
 }
 function getVotes() {
     var votes = JSON.parse(window.localStorage.getItem('votes'));
-    var voteDiv = document.getElementById("ala");
+    var voteDiv = document.getElementById("mihinluodaanaanestykset");
     var voteNumber = 0;
     var optionNumber = 0;
     votes.forEach(vote => {
-        var voteH2 = document.createElement("h2");
+        var voteH2 = document.createElement("h1");
         var voteTopic = document.createTextNode(vote.aihe);
         voteH2.appendChild(voteTopic);
 
@@ -72,21 +72,23 @@ function getVotes() {
         vote.options.forEach(option => {
             console.log(option);
             var optionElement = document.createElement("li");
-            var optionText = document.createTextNode(option.name);
+            var optionText1 = document.createElement("h3");
+            var optionText2 = document.createTextNode(option.name);
+            optionText1.appendChild(optionText2);
+            optionElement.appendChild(optionText1);
+            var h4 = document.createTextNode(option.name + " äänestykset: " + option.votes);
+            optionElement.appendChild(h4);
+            var br = document.createElement("br");
+            optionElement.appendChild(br);
             var btnAani = document.createElement("button");
             var btnAaniText = document.createTextNode("Äänestä");
             btnAani.appendChild(btnAaniText);
             btnAani.dataset.vote = voteNumber;
             btnAani.dataset.option = optionNumber;
             optionElement.appendChild(btnAani);
-            optionElement.appendChild(optionText);
+
             optionList.appendChild(optionElement);
             optionNumber++;
-            var h4 = document.createElement("li");
-            var h4text = document.createTextNode(option.name + " äänestykset: " + option.votes);
-            h4.appendChild(h4text);
-            optionList.appendChild(h4);
-            
         })
         voteDiv.appendChild(voteH2);
         voteDiv.appendChild(optionList);
@@ -98,6 +100,8 @@ function giveVote(voteId, optionId) {
     var votes = JSON.parse(window.localStorage.getItem('votes'));
     votes[voteId].options[optionId].votes++;
     window.localStorage.setItem('votes', JSON.stringify(votes));
+
+    return votes[voteId].options[optionId].votes;
 }
 function delVote() {
     var votes = JSON.parse(window.localStorage.getItem('votes'));
@@ -105,6 +109,7 @@ function delVote() {
 }
 function voteClick(event) {
     if (event.target.dataset.vote) {
-        giveVote(event.target.dataset.vote, event.target.dataset.option);
+        var voteDiv = event.target.parentElement.nextElementSibling;
+        voteDiv.innerhtml = giveVote(event.target.dataset.vote, event.target.dataset.option);
     }
 }

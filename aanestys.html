@@ -16,20 +16,29 @@
             display: inline-block;
             border-bottom: 2px solid white;
         }
-        #ala {
-            width: 15%;
+        .aanestysH1 {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+        }
+        #mihinluodaanaanestykset {
+            max-width: 20%;
             height: 100%;
             background-color: gray;
         }
         h1 {
+            margin-left: 39px;
             font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             color: white;
         }
         h2 {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             color: white;
         }
+        h3 {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
         .aanestys {
-            max-width: 20%;
+            max-width: 2%;
             background-color: gray;
             display: inline;
         }
@@ -53,7 +62,7 @@
 </body>
 <center>
 <div class="ylapalkki">
-    <h1>Äänestyssovellus</h1>
+    <h1 class="aanestysH1">Äänestyssovellus</h1>
    
     <div class="kirjautuminen" id="kirjautuminen">
             <br>
@@ -72,8 +81,8 @@
     </div>
 </div>
 </center>
-<div id="joo">
-    <div id="ala">
+<div id="kokonaisuus">
+    <div id="mihinluodaanaanestykset">
 
     </div>
 </div>
@@ -88,7 +97,7 @@
         <br>
         <input type="text" id="vastaus2" placeholder="Vastaus 2">
         <br>
-        <input type="submit" placeholder="Luo uusi" onclick="uusiAanestys(), getVotes()">
+        <button type="button" onclick="uusiAanestys(), getVotes()">Luo uusi</button>
     </div>
 </center>
 <script src="aanestys.js"></script>
