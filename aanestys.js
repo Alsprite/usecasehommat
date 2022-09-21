@@ -63,6 +63,7 @@ function getVotes() {
     var voteNumber = 0;
     var optionNumber = 0;
     votes.forEach(vote => {
+        //Äänestyksen aiheen tulostus
         var voteH2 = document.createElement("h1");
         var voteTopic = document.createTextNode(vote.aihe);
         voteH2.appendChild(voteTopic);
@@ -71,22 +72,27 @@ function getVotes() {
         var optionList = document.createElement("ul");
         vote.options.forEach(option => {
             console.log(option);
+            //Vaihtoehtojen tulostus
             var optionElement = document.createElement("li");
             var optionText1 = document.createElement("h3");
             var optionText2 = document.createTextNode(option.name);
             optionText1.appendChild(optionText2);
             optionElement.appendChild(optionText1);
-            var h4 = document.createTextNode(option.name + " äänestykset: " + option.votes);
+            //Span
+            var h4 = document.createTextNode(option.name + " äänestykset: ");
+            var span = document.createElement("span");
+            span.value = option.votes;
             optionElement.appendChild(h4);
-            var br = document.createElement("br");
-            optionElement.appendChild(br);
+            var spanValue = document.createTextNode(span.value);
+            span.appendChild(spanValue);
+            optionElement.appendChild(span);
+            //Äänestys-button
             var btnAani = document.createElement("button");
             var btnAaniText = document.createTextNode("Äänestä");
             btnAani.appendChild(btnAaniText);
             btnAani.dataset.vote = voteNumber;
             btnAani.dataset.option = optionNumber;
             optionElement.appendChild(btnAani);
-
             optionList.appendChild(optionElement);
             optionNumber++;
         })
@@ -108,8 +114,9 @@ function delVote() {
     delete votes;
 }
 function voteClick(event) {
+    var voteSpan = document.querySelector("span");
+    // var voteDiv = event.target.parentElement.nextElementSibling;
     if (event.target.dataset.vote) {
-        var voteDiv = event.target.parentElement.nextElementSibling;
-        voteDiv.innerhtml = giveVote(event.target.dataset.vote, event.target.dataset.option);
+        voteSpan.innerhtml = giveVote(event.target.dataset.vote, event.target.dataset.option);
     }
 }
