@@ -34,6 +34,7 @@ function uusiAanestys() {
 }
 function suljeDiv() {
     document.getElementById("uusi").style.display = "none";
+    document.getElementById("poista").style.display = "none";
 }
 function init() {
     var nimi = document.getElementById("nimi").value;
@@ -86,6 +87,9 @@ function getVotes() {
             var spanValue = document.createTextNode(span.value);
             span.appendChild(spanValue);
             optionElement.appendChild(span);
+            //br
+            var br = document.createElement("br");
+            optionElement.appendChild(br);
             //Äänestys-button
             var btnAani = document.createElement("button");
             var btnAaniText = document.createTextNode("Äänestä");
@@ -110,13 +114,15 @@ function giveVote(voteId, optionId) {
     return votes[voteId].options[optionId].votes;
 }
 function delVote() {
+    document.getElementById("poista").style.display = "block";
+    var poisto = document.getElementById("poistettava").value;
     var votes = JSON.parse(window.localStorage.getItem('votes'));
-    delete votes;
+    
+    
 }
 function voteClick(event) {
     var voteSpan = document.querySelector("span");
-    // var voteDiv = event.target.parentElement.nextElementSibling;
     if (event.target.dataset.vote) {
-        voteSpan.innerhtml = giveVote(event.target.dataset.vote, event.target.dataset.option);
+        voteSpan.innerHTML = giveVote(event.target.dataset.vote, event.target.dataset.option);
     }
 }
