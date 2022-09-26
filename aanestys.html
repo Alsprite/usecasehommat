@@ -41,6 +41,9 @@
             color: white;
             font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
+        #aanetDivi {
+            display: inline;
+        }
         h4 {
             display: inline;
             font-family: 'Segoe UI';
@@ -73,6 +76,11 @@
         #aanestysNappulat {
             display: inline;
         }
+        button {
+            background-color: purple;
+            color: white;
+            border: 5px solid purple;
+        }
         #text {
             color: black;
         }
@@ -89,7 +97,7 @@
             <br>
             <input type="text" id="salasana" placeholder="Salasana" value="1234">
             <br>
-            <input type="submit" placeholder="Kirjaudu" onclick="kirjaudu()">
+            <button type="button" placeholder="Kirjaudu" onclick="kirjaudu()">Kirjaudu</button>
         </div>
     <div id="ylaNappulat" style="display: none">
         <button type="button" onclick="kirjauduUlos()">Kirjaudu ulos</button>

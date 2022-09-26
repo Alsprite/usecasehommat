@@ -115,11 +115,11 @@ function delVote() {
     document.getElementById("poista").style.display = "block";
     var poisto = document.getElementById("poistettava").value;
     var vote = window.localStorage.getItem('votes');
-    var loytyyko = vote.includes("aihe");
-    console.log(vote.aihe);
-    if ("aihe" == poisto) {
-        console.log("cum");
-    }
+    // var loytyyko = vote.includes("aihe");
+    // console.log(vote.aihe);
+    // if ("aihe" == poisto) {
+    //     console.log("bruh");
+    // }
 
     // var pois = document.getElementById("mihinluodaanaanestykset");
     // pois.parentNode.removeChild(pois);
