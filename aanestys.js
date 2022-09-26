@@ -68,7 +68,6 @@ function getVotes() {
         var voteH2 = document.createElement("h1");
         var voteTopic = document.createTextNode(vote.aihe);
         voteH2.appendChild(voteTopic);
-
         
         var optionList = document.createElement("ul");
         vote.options.forEach(option => {
@@ -79,17 +78,17 @@ function getVotes() {
             var optionText2 = document.createTextNode(option.name);
             optionText1.appendChild(optionText2);
             optionElement.appendChild(optionText1);
+            //h4-teksti ja span
+            var h4 = document.createElement("h4");
+            var h4text = document.createTextNode(option.name + " äänestykset: ");
+            h4.appendChild(h4text);
+            optionElement.appendChild(h4);
             //Span
-            var h4 = document.createTextNode(option.name + " äänestykset: ");
             var span = document.createElement("span");
             span.value = option.votes;
-            optionElement.appendChild(h4);
             var spanValue = document.createTextNode(span.value);
             span.appendChild(spanValue);
             optionElement.appendChild(span);
-            //br
-            var br = document.createElement("br");
-            optionElement.appendChild(br);
             //Äänestys-button
             var btnAani = document.createElement("button");
             var btnAaniText = document.createTextNode("Äänestä");
@@ -110,18 +109,23 @@ function giveVote(voteId, optionId) {
     var votes = JSON.parse(window.localStorage.getItem('votes'));
     votes[voteId].options[optionId].votes++;
     window.localStorage.setItem('votes', JSON.stringify(votes));
-
     return votes[voteId].options[optionId].votes;
 }
 function delVote() {
     document.getElementById("poista").style.display = "block";
     var poisto = document.getElementById("poistettava").value;
-    var votes = JSON.parse(window.localStorage.getItem('votes'));
-    
-    
+    var vote = window.localStorage.getItem('votes');
+    var loytyyko = vote.includes("aihe");
+    console.log(vote.aihe);
+    if ("aihe" == poisto) {
+        console.log("cum");
+    }
+
+    // var pois = document.getElementById("mihinluodaanaanestykset");
+    // pois.parentNode.removeChild(pois);
 }
 function voteClick(event) {
-    var voteSpan = document.querySelector("span");
+    var voteSpan = event.target.previousElementSibling;
     if (event.target.dataset.vote) {
         voteSpan.innerHTML = giveVote(event.target.dataset.vote, event.target.dataset.option);
     }
