@@ -11,6 +11,12 @@
         body {
             background-image: url(tausta.jpg);
         }
+        .kirjautuminen {
+            display: inline-flex;
+        }
+        #kirjautuminen {
+            display: inline-flex;
+        }
         .ylapalkki {
             width: 100%;
             display: inline-block;
@@ -84,7 +90,9 @@
         #text {
             color: black;
         }
-
+        #aanestys {
+            display: inline;
+        }
     </style>
 </body>
 <center>
@@ -93,9 +101,9 @@
    
     <div class="kirjautuminen" id="kirjautuminen">
             <br>
-            <input type="text" id="ID" placeholder="KäyttäjäID" value="admin">
+            <input type="text" id="ID" placeholder="KäyttäjäID" value="admin" style="width: 100px">
             <br>
-            <input type="text" id="salasana" placeholder="Salasana" value="1234">
+            <input type="text" id="salasana" placeholder="Salasana" value="1234" style="width: 100px">
             <br>
             <button type="button" placeholder="Kirjaudu" onclick="kirjaudu()">Kirjaudu</button>
         </div>

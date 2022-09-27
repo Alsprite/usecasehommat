@@ -1,4 +1,5 @@
 document.addEventListener("click", voteClick);
+var adminko = 0;
 
 function kirjaudu() {
     let ID = document.getElementById("ID").value;
@@ -6,8 +7,12 @@ function kirjaudu() {
 
     if (ID == "admin" && ss == "1234") {
         kirjauduAdmin();
+        adminko = 1;
+        console.log("1");
     } else {
         kirjauduPerus();
+        adminko = 0;
+        console.log("0");
     }
 }
 function kirjauduAdmin() {
@@ -25,6 +30,7 @@ function kirjauduPerus() {
 function kirjauduUlos() {
     document.getElementById("kirjautuminen").style.display = "block";
     document.getElementById("ylaNappulat").style.display = "none";
+    adminko = 0;
 }
 function uusiAanestysDiv() {
     document.getElementById("uusi").style.display = "block";
@@ -68,6 +74,21 @@ function getVotes() {
         var voteH2 = document.createElement("h1");
         var voteTopic = document.createTextNode(vote.aihe);
         voteH2.appendChild(voteTopic);
+        //Poisto-button
+            if (adminko == 0) {
+                var div = document.getElementById("mihinluodaanaanestykset");
+                if (div) {
+                    console.log("kurwa");
+                    div.parentNode.removeChild(poistoBtn);
+                }
+            }
+            if (adminko == 1) {
+                var poistoBtn = document.createElement("button");
+                var poistoBtnText = document.createTextNode("Poista");
+                poistoBtn.id = "poisto";
+                poistoBtn.appendChild(poistoBtnText);
+                voteDiv.appendChild(poistoBtn);
+            }
         
         var optionList = document.createElement("ul");
         vote.options.forEach(option => {
@@ -90,11 +111,14 @@ function getVotes() {
             span.appendChild(spanValue);
             optionElement.appendChild(span);
             //Äänestys-button
+            var pre = document.createElement("pre");
+            optionElement.appendChild(pre);
             var btnAani = document.createElement("button");
             var btnAaniText = document.createTextNode("Äänestä");
             btnAani.appendChild(btnAaniText);
             btnAani.dataset.vote = voteNumber;
             btnAani.dataset.option = optionNumber;
+            btnAani.id = "aanestys";
             optionElement.appendChild(btnAani);
             optionList.appendChild(optionElement);
             optionNumber++;
@@ -125,7 +149,7 @@ function delVote() {
     // pois.parentNode.removeChild(pois);
 }
 function voteClick(event) {
-    var voteSpan = event.target.previousElementSibling;
+    var voteSpan = event.target.previousElementSibling.previousElementSibling;
     if (event.target.dataset.vote) {
         voteSpan.innerHTML = giveVote(event.target.dataset.vote, event.target.dataset.option);
     }
