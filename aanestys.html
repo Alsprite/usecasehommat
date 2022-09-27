@@ -90,9 +90,6 @@
         #text {
             color: black;
         }
-        #aanestys {
-            display: inline;
-        }
     </style>
 </body>
 <center>
@@ -100,17 +97,14 @@
     <h1 class="aanestysH1">Äänestyssovellus</h1>
    
     <div class="kirjautuminen" id="kirjautuminen">
-            <br>
             <input type="text" id="ID" placeholder="KäyttäjäID" value="admin" style="width: 100px">
-            <br>
             <input type="text" id="salasana" placeholder="Salasana" value="1234" style="width: 100px">
-            <br>
             <button type="button" placeholder="Kirjaudu" onclick="kirjaudu()">Kirjaudu</button>
         </div>
     <div id="ylaNappulat" style="display: none">
         <button type="button" onclick="kirjauduUlos()">Kirjaudu ulos</button>
         <div id="adminNappulat">
-            <button type="button" onclick="delVote()">Poista äänestys</button>
+            <!-- <button type="button" onclick="delVote()">Poista äänestys</button> -->
             <button type="button" onclick="uusiAanestysDiv()">Uusi äänestys</button>
         </div>
     </div>
@@ -134,14 +128,14 @@
         <br>
         <button type="button" onclick="uusiAanestys(), getVotes()">Luo uusi</button>
     </div>
-<div id="poista" style="display: none">
+<!-- <div id="poistaDiv" style="display: none">
     <button type="button" onclick="suljeDiv()">Sulje</button>
     <h3>Mikä poistetaan?</h3>
     <br>
     <input type="text" id="poistettava" placeholder="Äänestyksen nimi">
     <br>
     <button type="button" onclick="delVote()">Poista</button>
-</div>
+</div> -->
 </center>
 <script src="aanestys.js"></script>
 </html>

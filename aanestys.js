@@ -8,11 +8,11 @@ function kirjaudu() {
     if (ID == "admin" && ss == "1234") {
         kirjauduAdmin();
         adminko = 1;
-        console.log("1");
+        console.log("admin");
     } else {
         kirjauduPerus();
         adminko = 0;
-        console.log("0");
+        console.log("perus");
     }
 }
 function kirjauduAdmin() {
@@ -28,7 +28,7 @@ function kirjauduPerus() {
     document.getElementById("adminNappulat").style.display = "none";
 }
 function kirjauduUlos() {
-    document.getElementById("kirjautuminen").style.display = "block";
+    document.getElementById("kirjautuminen").style.display = "inline-block";
     document.getElementById("ylaNappulat").style.display = "none";
     adminko = 0;
 }
@@ -40,7 +40,7 @@ function uusiAanestys() {
 }
 function suljeDiv() {
     document.getElementById("uusi").style.display = "none";
-    document.getElementById("poista").style.display = "none";
+    document.getElementById("poistaDiv").style.display = "none";
 }
 function init() {
     var nimi = document.getElementById("nimi").value;
@@ -76,11 +76,9 @@ function getVotes() {
         voteH2.appendChild(voteTopic);
         //Poisto-button
             if (adminko == 0) {
-                var div = document.getElementById("mihinluodaanaanestykset");
-                if (div) {
-                    console.log("kurwa");
-                    div.parentNode.removeChild(poistoBtn);
-                }
+                var divId = document.getElementById("mihinluodaanaanestykset");
+                var btnId = document.getElementById("poisto");
+                divId.removeChild(btnId);
             }
             if (adminko == 1) {
                 var poistoBtn = document.createElement("button");
@@ -136,7 +134,7 @@ function giveVote(voteId, optionId) {
     return votes[voteId].options[optionId].votes;
 }
 function delVote() {
-    document.getElementById("poista").style.display = "block";
+    document.getElementById("poistaDiv").style.display = "block";
     var poisto = document.getElementById("poistettava").value;
     var vote = window.localStorage.getItem('votes');
     // var loytyyko = vote.includes("aihe");
