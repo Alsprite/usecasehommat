@@ -1,5 +1,7 @@
 document.addEventListener("click", voteClick);
-var adminko = 0;
+var poistoBtn = document.createElement("button");
+var poistoBtnText = document.createTextNode("Poista");
+poistoBtn.id = "poisto";
 
 function kirjaudu() {
     let ID = document.getElementById("ID").value;
@@ -7,11 +9,11 @@ function kirjaudu() {
 
     if (ID == "admin" && ss == "1234") {
         kirjauduAdmin();
-        adminko = 1;
+        poistoBtn.className = "poistoFull";
         console.log("admin");
     } else {
         kirjauduPerus();
-        adminko = 0;
+        poistoBtn.className = "poistoEmpty";
         console.log("perus");
     }
 }
@@ -30,7 +32,7 @@ function kirjauduPerus() {
 function kirjauduUlos() {
     document.getElementById("kirjautuminen").style.display = "inline-block";
     document.getElementById("ylaNappulat").style.display = "none";
-    adminko = 0;
+    poistoBtn.className = "poistoEmpty";
 }
 function uusiAanestysDiv() {
     document.getElementById("uusi").style.display = "block";
@@ -75,18 +77,9 @@ function getVotes() {
         var voteTopic = document.createTextNode(vote.aihe);
         voteH2.appendChild(voteTopic);
         //Poisto-button
-            if (adminko == 0) {
-                var divId = document.getElementById("mihinluodaanaanestykset");
-                var btnId = document.getElementById("poisto");
-                divId.removeChild(btnId);
-            }
-            if (adminko == 1) {
-                var poistoBtn = document.createElement("button");
-                var poistoBtnText = document.createTextNode("Poista");
-                poistoBtn.id = "poisto";
-                poistoBtn.appendChild(poistoBtnText);
-                voteDiv.appendChild(poistoBtn);
-            }
+        poistoBtn.addEventListener("click", delVote, false);
+        poistoBtn.appendChild(poistoBtnText);
+        voteDiv.appendChild(poistoBtn);
         
         var optionList = document.createElement("ul");
         vote.options.forEach(option => {
@@ -134,17 +127,7 @@ function giveVote(voteId, optionId) {
     return votes[voteId].options[optionId].votes;
 }
 function delVote() {
-    document.getElementById("poistaDiv").style.display = "block";
-    var poisto = document.getElementById("poistettava").value;
-    var vote = window.localStorage.getItem('votes');
-    // var loytyyko = vote.includes("aihe");
-    // console.log(vote.aihe);
-    // if ("aihe" == poisto) {
-    //     console.log("bruh");
-    // }
-
-    // var pois = document.getElementById("mihinluodaanaanestykset");
-    // pois.parentNode.removeChild(pois);
+    console.log("xd");
 }
 function voteClick(event) {
     var voteSpan = event.target.previousElementSibling.previousElementSibling;
