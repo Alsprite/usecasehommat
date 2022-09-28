@@ -1,7 +1,5 @@
 document.addEventListener("click", voteClick);
-var poistoBtn = document.createElement("button");
-var poistoBtnText = document.createTextNode("Poista");
-poistoBtn.id = "poisto";
+var adminko = 0;
 
 function kirjaudu() {
     let ID = document.getElementById("ID").value;
@@ -9,11 +7,11 @@ function kirjaudu() {
 
     if (ID == "admin" && ss == "1234") {
         kirjauduAdmin();
-        poistoBtn.className = "poistoFull";
+        adminko = 1;
         console.log("admin");
     } else {
         kirjauduPerus();
-        poistoBtn.className = "poistoEmpty";
+        adminko = 0;
         console.log("perus");
     }
 }
@@ -32,7 +30,7 @@ function kirjauduPerus() {
 function kirjauduUlos() {
     document.getElementById("kirjautuminen").style.display = "inline-block";
     document.getElementById("ylaNappulat").style.display = "none";
-    poistoBtn.className = "poistoEmpty";
+    adminko = 0;
 }
 function uusiAanestysDiv() {
     document.getElementById("uusi").style.display = "block";
@@ -69,10 +67,20 @@ function init() {
 function getVotes() {
     var votes = JSON.parse(window.localStorage.getItem('votes'));
     var voteDiv = document.getElementById("mihinluodaanaanestykset");
+    voteDiv.style.display = "block";
     var voteNumber = 0;
     var optionNumber = 0;
     votes.forEach(vote => {
         //Äänestyksen aiheen tulostus
+        var poistoBtn = document.createElement("button");
+        var poistoBtnText = document.createTextNode("Poista");
+        poistoBtn.id = "poisto";
+        if (adminko = 1) {
+            poistoBtn.className = "poistoFull";
+        }
+        if (adminko = 0) {
+            poistoBtn.className = "poistoEmpty";
+        }
         var voteH2 = document.createElement("h1");
         var voteTopic = document.createTextNode(vote.aihe);
         voteH2.appendChild(voteTopic);
@@ -127,7 +135,7 @@ function giveVote(voteId, optionId) {
     return votes[voteId].options[optionId].votes;
 }
 function delVote() {
-    console.log("xd");
+    document.getElementById("mihinluodaanaanestykset").innerHTML = "";
 }
 function voteClick(event) {
     var voteSpan = event.target.previousElementSibling.previousElementSibling;
