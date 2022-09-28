@@ -1,4 +1,4 @@
-document.addEventListener("click", voteClick);
+// document.addEventListener("click", voteClick);
 var adminko = 0;
 
 function kirjaudu() {
@@ -66,7 +66,8 @@ function init() {
 }
 function getVotes() {
     var votes = JSON.parse(window.localStorage.getItem('votes'));
-    var voteDiv = document.getElementById("mihinluodaanaanestykset");
+    var voteDiv = document.createElement("div");
+    voteDiv.className = "mihinluodaanaanestykset";
     voteDiv.style.display = "block";
     var voteNumber = 0;
     var optionNumber = 0;
@@ -114,6 +115,7 @@ function getVotes() {
             optionElement.appendChild(pre);
             var btnAani = document.createElement("button");
             var btnAaniText = document.createTextNode("Äänestä");
+            btnAani.addEventListener("click", voteClick);
             btnAani.appendChild(btnAaniText);
             btnAani.dataset.vote = voteNumber;
             btnAani.dataset.option = optionNumber;
@@ -124,6 +126,7 @@ function getVotes() {
         })
         voteDiv.appendChild(voteH2);
         voteDiv.appendChild(optionList);
+        document.getElementById("kokonaisuus").appendChild(voteDiv);
         voteNumber++;
     });
     document.getElementById("uusi").style.display = "none";
@@ -134,8 +137,9 @@ function giveVote(voteId, optionId) {
     window.localStorage.setItem('votes', JSON.stringify(votes));
     return votes[voteId].options[optionId].votes;
 }
-function delVote() {
-    document.getElementById("mihinluodaanaanestykset").innerHTML = "";
+function delVote(event) {
+    var poistettava = event.target.parentNode;
+    event.target.parentNode.parentNode.removeChild(poistettava);
 }
 function voteClick(event) {
     var voteSpan = event.target.previousElementSibling.previousElementSibling;
