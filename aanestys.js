@@ -35,9 +35,6 @@ function kirjauduUlos() {
 function uusiAanestysDiv() {
     document.getElementById("uusi").style.display = "block";
 }
-function uusiAanestys() {
-    init();
-}
 function suljeDiv() {
     document.getElementById("uusi").style.display = "none";
     document.getElementById("poistaDiv").style.display = "none";
@@ -46,7 +43,7 @@ function init() {
     var nimi = document.getElementById("nimi").value;
     var vasta1 = document.getElementById("vastaus1").value;
     var vasta2 = document.getElementById("vastaus2").value;
-    var votes = [];
+    var votes = JSON.parse(window.localStorage.getItem('votes'));
     var vote = {
         aihe: nimi,
         options: [
@@ -70,7 +67,7 @@ function getVotes() {
     voteDiv.className = "mihinluodaanaanestykset";
     voteDiv.style.display = "block";
     var voteNumber = 0;
-    var optionNumber = 0;
+    
     votes.forEach(vote => {
         //Äänestyksen aiheen tulostus
         var poistoBtn = document.createElement("button");
@@ -91,6 +88,7 @@ function getVotes() {
         voteDiv.appendChild(poistoBtn);
         
         var optionList = document.createElement("ul");
+        var optionNumber = 0;
         vote.options.forEach(option => {
             console.log(option);
             //Vaihtoehtojen tulostus
@@ -119,6 +117,8 @@ function getVotes() {
             btnAani.appendChild(btnAaniText);
             btnAani.dataset.vote = voteNumber;
             btnAani.dataset.option = optionNumber;
+            poistoBtn.dataset.poisto1 = voteNumber;
+            poistoBtn.dataset.poisto2 = optionNumber;
             btnAani.id = "aanestys";
             optionElement.appendChild(btnAani);
             optionList.appendChild(optionElement);
@@ -137,13 +137,18 @@ function giveVote(voteId, optionId) {
     window.localStorage.setItem('votes', JSON.stringify(votes));
     return votes[voteId].options[optionId].votes;
 }
-function delVote(event) {
-    var poistettava = event.target.parentNode;
-    event.target.parentNode.parentNode.removeChild(poistettava);
+function delVote(poisto1, poisto2) {
+    console.log(poisto1);
+    console.log(poisto2);
+    // var poistettava = event.target.parentNode;
+    // event.target.parentNode.parentNode.removeChild(poistettava);
 }
 function voteClick(event) {
     var voteSpan = event.target.previousElementSibling.previousElementSibling;
     if (event.target.dataset.vote) {
         voteSpan.innerHTML = giveVote(event.target.dataset.vote, event.target.dataset.option);
+    }
+    if (event.target.dataset.poisto) {
+        delVote(event.target.dataset.poisto1, event.target.dataset.poisto2);
     }
 }
