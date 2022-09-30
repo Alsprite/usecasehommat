@@ -83,7 +83,7 @@ function getVotes() {
         var voteTopic = document.createTextNode(vote.aihe);
         voteH2.appendChild(voteTopic);
         //Poisto-button
-        poistoBtn.addEventListener("click", delVote, false);
+        poistoBtn.addEventListener("click", voteClick);
         poistoBtn.appendChild(poistoBtnText);
         voteDiv.appendChild(poistoBtn);
         
@@ -144,8 +144,8 @@ function delVote(poisto1, poisto2) {
     // event.target.parentNode.parentNode.removeChild(poistettava);
 }
 function voteClick(event) {
-    var voteSpan = event.target.previousElementSibling.previousElementSibling;
     if (event.target.dataset.vote) {
+        var voteSpan = event.target.previousElementSibling.previousElementSibling;
         voteSpan.innerHTML = giveVote(event.target.dataset.vote, event.target.dataset.option);
     }
     if (event.target.dataset.poisto) {
