@@ -46,7 +46,6 @@ function uusiAanestysDiv() {
 }
 function suljeDiv() {
     document.getElementById("uusi").style.display = "none";
-    document.getElementById("poistaDiv").style.display = "none";
 }
 function init() {
     var nimi = document.getElementById("nimi").value;
@@ -140,7 +139,6 @@ function giveVote(voteId, optionId) {
     return votes[voteId].options[optionId].votes;
 }
 function delVote(poisto1) {
-    console.log(poisto1);
     var votes = JSON.parse(window.localStorage.getItem('votes'));
     votes.splice(poisto1, 1);
     window.localStorage.setItem("votes", JSON.stringify(votes));
@@ -151,10 +149,7 @@ function voteClick(event) {
         var voteSpan = event.target.previousElementSibling.previousElementSibling;
         voteSpan.innerHTML = giveVote(event.target.dataset.vote, event.target.dataset.option);
     }
-   
 }
 function delClick(event) {
-    if (event.target.dataset.poisto1) {
-        delVote(event.target.dataset.poisto1);
-    }
+    delVote(event.target.dataset.poisto1);
 }
