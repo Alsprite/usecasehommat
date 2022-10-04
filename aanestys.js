@@ -1,6 +1,8 @@
 var adminko = 0;
-var votes = [];
-window.localStorage.setItem('votes', JSON.stringify(votes));
+if (window.localStorage.getItem('votes') == null) {
+    var votes = [];
+    window.localStorage.setItem('votes', JSON.stringify(votes));
+}
 
 function kirjaudu() {
     let ID = document.getElementById("ID").value;
@@ -64,6 +66,7 @@ function init() {
             }
         ]
     }
+    var votes = JSON.parse(window.localStorage.getItem('votes'));
     votes.push(vote);
     window.localStorage.setItem('votes', JSON.stringify(votes));
     console.log("init");
